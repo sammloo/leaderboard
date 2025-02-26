@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16
+    container_name: postgres_database
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: leaderboard
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "4321:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "user", "-d", "leaderboard"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 5s
+
+  backend:
+    build: ./backend
+    container_name: flask_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/leaderboard
+      INIT_DB: true
+      FLASK_APP: ./backend/leaderboard
+      FLASK_ENV: development
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/app
+volumes:
+  postgres_data:

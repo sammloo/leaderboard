@@ -1,0 +1,6 @@
+flask
+psycopg2
+faker
+flask_cors
+flask_apscheduler
+flask_sqlalchemy

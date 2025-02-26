@@ -1,0 +1,26 @@
+    h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .json-display {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    max-height: 500px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1rem;
+    color: #2c3e50;
+  }
+  
+  @media (max-width: 768px) {
+    .json-display {
+      font-size: 0.9rem;
+    }
+  }
+  

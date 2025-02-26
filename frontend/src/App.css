@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.leaderboard-container {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  color: black;
+  background-color: #f9f9f9;
+}
+
+
+.remove-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #cc0000;
+}
+
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+
+.points {
+  font-size: 16px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 5px;
+}
+
+
+.increment-btn, .decrement-btn {
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.increment-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.increment-btn:hover {
+  background: #388e3c;
+}
+
+.decrement-btn {
+  background: #757575;
+  color: white;
+}
+
+.decrement-btn:hover {
+  background: #5a5a5a;
+}
+
+.add-user-btn {
+  width: 100%;
+  margin-top: 10px;
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-user-btn:hover {
+  background: #0056b3;
+}
+
+.winner {
+  color: black;
+  background-color: #f9f9f9;
+}

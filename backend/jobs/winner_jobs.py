@@ -12,9 +12,9 @@ def find_and_store_winner():
         logger.info("Running scheduled job: Finding winner...")
 
         try:
-            max_points_user = db.session.query(User).order_by(User.points.desc()).first()
+            max_points_user = db.session.query(User).filter(User.is_deleted == False).order_by(User.points.desc()).first()
             if max_points_user:
-                tied_users = db.session.query(User).filter(User.points == max_points_user.points).all()
+                tied_users = db.session.query(User).filter(User.points == max_points_user.points, User.is_deleted == False).all()
 
                 if len(tied_users) == 1:
                     winner = Winner(user_id=max_points_user.id, name=max_points_user.name, points=max_points_user.points)
@@ -24,6 +24,6 @@ def find_and_store_winner():
                 else:
                     logger.info("Tie detected, no winner declared.")
             else:
-                logger.info("No users found.")
+                logger.info("No eligible users found.")
         except Exception as e:
             logger.error(f"Error finding winner: {e}")
